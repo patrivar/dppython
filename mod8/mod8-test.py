@@ -26,8 +26,9 @@ cursor.execute("SELECT name, iso_Country, continent FROM country") #SQL komennot
 # fetchall palauttaa kaikki (loput) rivit listana
 rows = cursor.fetchall()
 print(rows)
-print(f"Tulosrivejä yhteensä: {cursor.rowcount}")
+
 # tulolista käsitellään toistorakenteella
 
 for row in rows:
         print(f"{row[1]}, Maakoodi: {row[2]}, maanosa {row[0]}")
+print(f"Tulosrivejä yhteensä: {cursor.rowcount}")
