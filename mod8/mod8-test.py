@@ -23,3 +23,7 @@ print(result)
 # fetchmany palautttaa halutun määrän () rivejä kerrallaan (listana monikkoja)
 result = cursor.fetchmany(3)
 print(result)
+# fetchall palauttaa kaikki (loput) rivit listana
+result = cursor.fetchall()
+print(result)
+# tulolista käsitellään toistorakenteella
