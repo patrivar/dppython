@@ -22,7 +22,8 @@ connection = mysql.connector.connect(
 
 
 def lentokenttä1(code1):
-    sql = (f"select latitude_deg, longitude_deg from airport where ident = '{code1}'")
+    sql = (f"select latitude_deg, longitude_deg "
+           f"from airport where ident = '{code1}'")
     cursor = connection.cursor()
     cursor.execute(sql)
     result_row1 = cursor.fetchone()
@@ -33,7 +34,8 @@ user_input1 = input("Anna ensimmäinen ICAO-koodi:")
 
 
 def lentokenttä2(code2):
-    sql = (f"select latitude_deg, longitude_deg from airport where ident = '{code2}'")
+    sql = (f"select latitude_deg, longitude_deg "
+           f"from airport where ident = '{code2}'")
 
     cursor = connection.cursor()
     cursor.execute(sql)
