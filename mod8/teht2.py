@@ -26,10 +26,10 @@ def fetch_airport_by_iso(code):
                 print(sql)
                 heli = 0
                 small = 0
-                if type == ('heliport',):
+                if sql == ('heliport',):
                         heli += 1
                         print(f"{heli}")
-                elif type == ('small_airport',):
+                elif sql == ('small_airport',):
                         small += 1
                         print(f"{small}")
                 print(heli)
