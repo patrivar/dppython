@@ -15,7 +15,7 @@ connection = mysql.connector.connect(
 def fetch_airport_by_icao(code):
     sql = (f"SELECT name, municipality "
            f"FROM airport WHERE ident='{code}'")
-    #print(sql)
+    print(sql)
     cursor = connection.cursor()
     cursor.execute(sql)
     result_row = cursor.fetchone()

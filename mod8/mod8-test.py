@@ -18,8 +18,8 @@ cursor = connection.cursor()
 # ajetaan SQL-kielinen kysely osoittimen avulla
 cursor.execute("SELECT name, iso_Country, continent FROM country") #SQL komennot kirjoitetaan isolla
 # fetchone hakee rivi kerrallaan (monikkona)
-#result = cursor.fetchone()
-#print(result)
+result = cursor.fetchone()
+print(result)
 # fetchmany palautttaa halutun määrän () rivejä kerrallaan (listana monikkoja)
 #result = cursor.fetchmany(3)
 #print(result)
