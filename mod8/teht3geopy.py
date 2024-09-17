@@ -4,9 +4,6 @@
 
 import mysql.connector
 
-import math
-
-
 from geopy import distance
 
 connection = mysql.connector.connect(
@@ -32,7 +29,6 @@ def lentokenttä1(code1):
 user_input1 = input("Anna ensimmäinen ICAO-koodi:")
 
 
-
 def lentokenttä2(code2):
     sql = (f"select latitude_deg, longitude_deg "
            f"from airport where ident = '{code2}'")
@@ -43,7 +39,6 @@ def lentokenttä2(code2):
     return result_row2
 
 user_input2 = input("Anna toinen ICAO-koodi:")
-
 
 e = (distance.distance(lentokenttä2(user_input2),lentokenttä1(user_input1)).km)
 print(f"Kohteilla on {e:.2f}km etäisyyttä toisistaan.")
