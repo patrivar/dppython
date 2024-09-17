@@ -17,7 +17,7 @@ connection = mysql.connector.connect(
 
 
 def fetch_airport_by_iso(code):
-        sql = (f"SELECT COUNT(type) FROM airport WHERE iso_country = '{code}'")
+        sql = (f"SELECT type FROM airport WHERE iso_country = '{code}'")
         cursor = connection.cursor()
         cursor.execute(sql)
         result_row = cursor.fetchone()
