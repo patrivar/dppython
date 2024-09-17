@@ -32,7 +32,6 @@ user_input1 = input("Anna ensimmäinen ICAO-koodi:")
 def lentokenttä2(code2):
     sql = (f"select latitude_deg, longitude_deg "
            f"from airport where ident = '{code2}'")
-
     cursor = connection.cursor()
     cursor.execute(sql)
     result_row2 = cursor.fetchone()
