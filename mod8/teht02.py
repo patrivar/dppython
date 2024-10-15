@@ -16,25 +16,14 @@ connection = mysql.connector.connect(
 
 
 def fetch_airport_by_iso(code):
-        heli = 0
-        small = 0
-        big = 0
-        null = 0
-        sql = (f"SELECT type FROM airport WHERE iso_country = '{code}'")
+        sql = (f"SELECT type, count(*) FROM airport WHERE iso_country = '{code}' GROUP BY type")
         cursor = connection.cursor()
         cursor.execute(sql)
         result_row = cursor.fetchall()
-        for i in range(len(cursor.fetchall())):
-            print(result_row)
-            if result_row[i] == "heliport":
-                heli += 1
-            elif result_row[i] == "small":
-                small += 1
-            elif result_row[i] == "big":
-                big += 1
-            else:
-                null += 1
-        return heli, small, big, null
+        
+        return result_row
 
 user_input = input("Anna maa-koodi: ")
-print(fetch_airport_by_iso(user_input))
+ports = (fetch_airport_by_iso(user_input))
+for port in ports:
+        print(f"Tyyppi: {port[0]}, Määrä: {port[1]}")
