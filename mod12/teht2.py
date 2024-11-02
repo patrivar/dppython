@@ -17,13 +17,14 @@ def saa(kaupunki):
 
     units = f'http://api.openweathermap.org/geo/1.0/direct?q={kaupunki}&limit=5&appid={API_key}'
     response1 = requests.get(units).json()
-    lat, lon = response1['lat'], ['lon']
-    print(lat, lon)
+    lat = response1[0]['lat']
+    lon = response1[0]['lon']
+    print(f"Latitude: {lat}, Longitude: {lon}")
     url = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&appid={API_key}&units={temp_unit}'
-    # &exclude={part}
+
     try:
         response = requests.get(url)
-
+        response.raise_for_status()
     except requests.exceptions.RequestException as e:
         print("Verkkovirhe")
         print(e)
@@ -41,5 +42,6 @@ def saa(kaupunki):
 
     print(response_body)
     #print(response_body['main']['description']['temp'])
+
 
 saa(input("Kaupunki:"))
