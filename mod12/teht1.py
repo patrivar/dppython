@@ -12,3 +12,17 @@ def vitsi():
     except:
         print("Verkkovirhe")
         return
+
+    if response.status_code != 200:
+        print(f"HTTP-yhteysvirhe {response.status_code}")
+        return
+
+    response_body = requests.get(url).json()
+
+    if len(response_body) < 1:
+        print("Ei tuloksia")
+        return
+
+    print(response_body['value'])
+
+vitsi()
