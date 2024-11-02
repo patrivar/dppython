@@ -14,7 +14,7 @@ import  geopy
 import requests
 
 def saa():
-    API_key = '56f529fb2a62658db4ec020977c5bcc3'
+    API_key = ''
     url = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API_key}&units={temp_unit}'
 
     try:
