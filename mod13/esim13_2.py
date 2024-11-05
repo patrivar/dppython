@@ -2,6 +2,10 @@ from flask import Flask, Response
 import json
 
 app = Flask(__name__)
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
 @app.route('/summa/<luku1>/<luku2>')
 def summa(luku1, luku2):
     try:
