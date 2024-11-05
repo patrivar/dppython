@@ -41,7 +41,7 @@ def saa(kaupunki):
         return
 
     print(response_body)
-    #print(response_body['main']['description']['temp'])
+
 
 
 saa(input("Kaupunki:"))
