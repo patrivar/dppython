@@ -5,7 +5,7 @@
 # rajapintapyynnöissä tarvittavan API-avaimen (API key). Selvitä myös, miten saat
 # Kelvin-asteet muunnettua Celsius-asteiksi.
 
-
+import json
 import requests
 
 def saa(kaupunki):
@@ -18,7 +18,7 @@ def saa(kaupunki):
     lat = response1[0]['lat']
     lon = response1[0]['lon']
     print(f"Latitude: {lat}, Longitude: {lon}")
-    url = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&appid={API_key}&units={temp_unit}'
+    url = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&appid={API_key}&units={temp_unit}&lang=FI'
 
     try:
         response = requests.get(url)
@@ -38,7 +38,11 @@ def saa(kaupunki):
         print("Ei tuloksia")
         return
 
-    print(response_body)
+    print(json.dumbs(response_body, indent=2))
+    lämpötila = response_body['main']['temp']
+    kuvaus = response_body['weather'][0]['description']
+
+    print(f'Lämpötila kohteessa on {lämpötila} astetta ja sää on {kuvaus}.')
 
 
 saa(input("Kaupunki:"))
